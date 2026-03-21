@@ -933,25 +933,25 @@
                 <br><br>
                 <p class="section-desc" style="color:rgba(255,255,255,0.4); font-style:italic; font-family:'Playfair Display',serif;">"The prayer of a righteous person is powerful and effective."<br>— James 5:16</p>
             </div>
-            <div class="prayer-form">
+            <form class="prayer-form" action="https://formsubmit.co/armxn.worldwide@gmail.com" method="POST">
                 <h3>Prayer Request Form</h3>
                 <div class="form-row">
                     <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" placeholder="Your name">
+                        <input type="text" name="First Name" placeholder="Your name">
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" placeholder="Last name">
+                        <input type="text" name="Last Name" placeholder="Last name">
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Email Address</label>
-                    <input type="email" placeholder="your@email.com">
+                    <input type="email" name="Email" placeholder="your@email.com">
                 </div>
                 <div class="form-group">
                     <label>Prayer Category</label>
-                    <select>
+                    <select name="Category">
           <option value="">Select a category…</option>
           <option>Health & Healing</option>
           <option>Family & Relationships</option>
@@ -964,11 +964,16 @@
                 </div>
                 <div class="form-group">
                     <label>Your Prayer Request</label>
-                    <textarea placeholder="Share your prayer request here…"></textarea>
-                </div>
-                <button class="btn btn-primary" style="width:100%; font-size:0.82rem;">🙏 &nbsp;Submit Prayer Request</button>
-                <p class="privacy-note">Your request is treated with full confidentiality and shared only with our trusted prayer team.</p>
-            </div>
+                    <textarea name="Prayer Request" placeholder="Share your prayer request here…"></textarea>
+                </div><input type="hidden" name="_subject" value="New Prayer Request">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <button type="submit" class="btn btn-primary" style="width:100%; font-size:0.82rem;">
+🙏 Submit Prayer Request
+</button>
+            </form>
+            <p class="privacy-note">Your request is treated with full confidentiality and shared only with our trusted prayer team.</p>
+        </div>
         </div>
     </section>
 
