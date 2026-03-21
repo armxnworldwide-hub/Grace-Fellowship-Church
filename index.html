@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace Fellowship Church</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+         :root {
+            --gold: #C9A84C;
+            --gold-light: #E8C97A;
+            --navy: #1A2340;
+            --navy-dark: #0F1520;
+            --cream: #F5F0E8;
+            --warm-white: #FDFAF4;
+            --text: #2C2C2C;
+            --text-muted: #666;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--warm-white);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        /* NAV */
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 60px;
+            background: rgba(15, 21, 32, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+            animation: slideDown 0.8s ease forwards;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .nav-cross {
+            width: 28px;
+            height: 28px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .nav-cross::before,
+        .nav-cross::after {
+            content: '';
+            position: absolute;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+        
+        .nav-cross::before {
+            width: 4px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .nav-cross::after {
+            width: 100%;
+            height: 4px;
+            top: 35%;
+        }
+        
+        .nav-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--warm-white);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        .nav-title span {
+            color: var(--gold);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        /* HERO */
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 50%, #2A3558 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 20px 80px;
+        }
+        
+        .hero-bg-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background-image: radial-gradient(circle at 20% 30%, var(--gold) 1px, transparent 1px), radial-gradient(circle at 80% 70%, var(--gold) 1px, transparent 1px), radial-gradient(circle at 50% 50%, var(--gold) 0.5px, transparent 0.5px);
+            background-size: 60px 60px, 80px 80px, 40px 40px;
+        }
+        
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.12) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 0.7;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+        }
+        
+        .hero-cross {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            margin: 0 auto 28px;
+            animation: fadeInUp 1s 0.3s both;
+        }
+        
+        .hero-cross::before,
+        .hero-cross::after {
+            content: '';
+            position: absolute;
+            background: var(--gold);
+            border-radius: 3px;
+        }
+        
+        .hero-cross::before {
+            width: 6px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .hero-cross::after {
+            width: 100%;
+            height: 6px;
+            top: 32%;
+        }
+        
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 16px;
+            animation: fadeInUp 1s 0.5s both;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            color: var(--warm-white);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: fadeInUp 1s 0.7s both;
+        }
+        
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+        
+        .hero-verse {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.65);
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            animation: fadeInUp 1s 0.9s both;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s 1.1s both;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy-dark);
+        }
+        
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.35);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--warm-white);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* SECTION SHARED */
+        
+        section {
+            padding: 100px 60px;
+        }
+        
+        .section-label {
+            font-size: 0.72rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .section-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 520px;
+        }
+        
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin-bottom: 20px;
+        }
+        /* MEETINGS */
+        
+        #meetings {
+            background: var(--cream);
+        }
+        
+        .meetings-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 80px;
+            align-items: start;
+        }
+        
+        .meetings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .meeting-card {
+            background: var(--warm-white);
+            padding: 32px 28px;
+            border-radius: 4px;
+            border-top: 3px solid var(--gold);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .meeting-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+        }
+        
+        .meeting-card.featured {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            border-top: none;
+            border-left: 4px solid var(--gold);
+            background: var(--navy);
+            color: var(--warm-white);
+        }
+        
+        .meeting-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(201, 168, 76, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        
+        .meeting-card.featured .meeting-icon {
+            background: rgba(201, 168, 76, 0.2);
+            width: 56px;
+            height: 56px;
+            font-size: 1.6rem;
+        }
+        
+        .meeting-day {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        
+        .meeting-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+        
+        .meeting-card.featured .meeting-name {
+            color: var(--warm-white);
+        }
+        
+        .meeting-time {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+        
+        .meeting-card.featured .meeting-time {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        /* PRAYER */
+        
+        #prayer {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #prayer::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 28rem;
+            color: rgba(201, 168, 76, 0.04);
+            position: absolute;
+            top: -80px;
+            left: -20px;
+            line-height: 1;
+            pointer-events: none;
+        }
+        
+        .prayer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .prayer-left .section-title {
+            color: var(--warm-white);
+        }
+        
+        .prayer-left .section-desc {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .prayer-form {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 4px;
+            padding: 44px 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .prayer-form h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--warm-white);
+            font-size: 1.5rem;
+            margin-bottom: 28px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 2px;
+            padding: 13px 16px;
+            color: var(--warm-white);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+        
+        .form-group select option {
+            background: var(--navy);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        .privacy-note {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.35);
+            margin-top: 16px;
+            line-height: 1.6;
+        }
+        /* EVENTS */
+        
+        #events {
+            background: var(--warm-white);
+        }
+        
+        .events-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .events-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 50px;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        
+        .event-card {
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--warm-white);
+            border: 1px solid rgba(0, 0, 0, 0.07);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.13);
+        }
+        
+        .event-header {
+            background: var(--navy);
+            padding: 28px 28px 22px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .event-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        .event-card:nth-child(2) .event-header {
+            background: #2A3558;
+        }
+        
+        .event-card:nth-child(3) .event-header {
+            background: #1E3040;
+        }
+        
+        .event-date-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--gold);
+            color: var(--navy-dark);
+            padding: 8px 14px;
+            border-radius: 2px;
+            margin-bottom: 14px;
+        }
+        
+        .event-date-badge .day {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .event-date-badge .month {
+            font-size: 0.62rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        
+        .event-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--warm-white);
+            font-size: 1.2rem;
+            line-height: 1.3;
+        }
+        
+        .event-body {
+            padding: 24px 28px 28px;
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        
+        .event-meta span {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .event-meta span::before {
+            content: attr(data-icon);
+            font-size: 1rem;
+        }
+        
+        .event-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .event-link {
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+        
+        .event-link:hover {
+            gap: 14px;
+        }
+        /* FOOTER */
+        
+        footer {
+            background: var(--navy-dark);
+            padding: 70px 60px 40px;
+            border-top: 1px solid rgba(201, 168, 76, 0.15);
+        }
+        
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-brand .nav-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-tagline {
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            line-height: 2;
+        }
+        
+        .footer-contact strong {
+            color: rgba(255, 255, 255, 0.75);
+        }
+        
+        .footer-col h4 {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 0.8rem;
+        }
+        
+        .footer-verse {
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 0.8rem;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+        /* MOBILE NAV */
+        
+        .nav-toggle {
+            display: none;
+        }
+        
+        @media (max-width: 900px) {
+            nav {
+                padding: 18px 24px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .nav-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--warm-white);
+                font-size: 1.4rem;
+                cursor: pointer;
+            }
+            section {
+                padding: 70px 24px;
+            }
+            .meetings-inner,
+            .prayer-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .meetings-grid {
+                grid-template-columns: 1fr;
+            }
+            .meeting-card.featured {
+                flex-direction: column;
+            }
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            .events-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            footer {
+                padding: 50px 24px 30px;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-logo">
+            <div class="nav-cross"></div>
+            <span class="nav-title">Grace <span>Fellowship</span> Church</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#meetings">Meetings</a></li>
+            <li><a href="#prayer">Prayer</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" onclick="alert('Mobile menu coming soon!')">☰</button>
+    </nav>
+
+
+    <section class="hero">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <div class="hero-cross"></div>
+            <p class="hero-eyebrow">Welcome to</p>
+            <h1>Grace <em>Fellowship</em><br>Church</h1>
+            <p class="hero-verse">"For where two or three gather in my name,<br>there am I with them." — Matthew 18:20</p>
+            <div class="hero-buttons">
+                <a href="#meetings" class="btn btn-primary">Join a Service</a>
+                <a href="#prayer" class="btn btn-outline">Submit Prayer Request</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEETINGS -->
+    <section id="meetings">
+        <div class="meetings-inner">
+            <div>
+                <span class="section-label">Gather Together</span>
+                <div class="divider"></div>
+                <h2 class="section-title">Meeting Times & Services</h2>
+                <p class="section-desc">We gather together in fellowship, worship, and the study of God's Word. All are welcome at Grace Fellowship Church — come as you are.</p>
+            </div>
+            <div class="meetings-grid">
+                <div class="meeting-card featured">
+                    <div class="meeting-icon">✝</div>
+                    <div>
+                        <p class="meeting-day">Sunday</p>
+                        <p class="meeting-name">Sunday Morning Worship</p>
+                        <p class="meeting-time">9:30 AM — Main Sanctuary</p>
+                    </div>
+                </div>
+                <div class="meeting-card">
+                    <div class="meeting-icon">📖</div>
+                    <p class="meeting-day">Sunday</p>
+                    <p class="meeting-name">Sunday School</p>
+                    <p class="meeting-time">9:00AM</p>
+                </div>
+                <div class="meeting-card">
+                    <div class="meeting-icon">🙏</div>
+                    <p class="meeting-day">Wednesday</p>
+                    <p class="meeting-name">Midweek Prayer &amp; Bible Study</p>
+                    <p class="meeting-time">6:30 PM</p>
+                </div>
+                <div class="meeting-card">
+                    <div class="meeting-icon">👨‍👩‍👧</div>
+                    <p class="meeting-day">Comming Soon</p>
+                    <p class="meeting-name">Youth Fellowship</p>
+                    <p class="meeting-time">Soon</p>
+                </div>
+                <div class="meeting-card">
+                    <div class="meeting-icon">🎵</div>
+                    <p class="meeting-day">Saturday</p>
+                    <p class="meeting-name">Worship Practice</p>
+                    <p class="meeting-time">Soon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRAYER -->
+    <section id="prayer">
+        <div class="prayer-inner">
+            <div class="prayer-left">
+                <span class="section-label">We Pray With You</span>
+                <div class="divider"></div>
+                <h2 class="section-title">Submit a Prayer Request</h2>
+                <p class="section-desc">We believe in the power of prayer. Our pastoral team and prayer group pray over every request submitted. You are not alone — let us carry this with you.</p>
+                <br><br>
+                <p class="section-desc" style="color:rgba(255,255,255,0.4); font-style:italic; font-family:'Playfair Display',serif;">"The prayer of a righteous person is powerful and effective."<br>— James 5:16</p>
+            </div>
+            <div class="prayer-form">
+                <h3>Prayer Request Form</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Last name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Prayer Category</label>
+                    <select>
+          <option value="">Select a category…</option>
+          <option>Health & Healing</option>
+          <option>Family & Relationships</option>
+          <option>Financial Needs</option>
+          <option>Spiritual Growth</option>
+          <option>Grief & Loss</option>
+          <option>Salvation of a Loved One</option>
+          <option>Other</option>
+        </select>
+                </div>
+                <div class="form-group">
+                    <label>Your Prayer Request</label>
+                    <textarea placeholder="Share your prayer request here…"></textarea>
+                </div>
+                <button class="btn btn-primary" style="width:100%; font-size:0.82rem;">🙏 &nbsp;Submit Prayer Request</button>
+                <p class="privacy-note">Your request is treated with full confidentiality and shared only with our trusted prayer team.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events">
+        <div class="events-inner">
+            <div class="events-header">
+                <div>
+                    <span class="section-label">Coming Up</span>
+                    <div class="divider"></div>
+                    <h2 class="section-title">Upcoming Events</h2>
+                </div>
+                <a href="#" class="btn btn-outline" style="color:var(--navy); border-color:var(--navy); font-size:0.75rem;">View All Events</a>
+            </div>
+
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date-badge">
+                            <span class="day">28</span>
+                            <span class="month">Mar</span>
+                        </div>
+                        <h3 class="event-title">Good Friday Prayer Vigil</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-meta">
+                            <span data-icon="🕖">6:00 PM – 9:00 PM</span>
+                            <span data-icon="📍">Main Sanctuary</span>
+                        </div>
+                        <p class="event-desc">A sacred evening of prayer, reflection, and worship as we remember the sacrifice of our Lord on the cross.</p>
+                        <a href="#" class="event-link">Learn More →</a>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date-badge">
+                            <span class="day">30</span>
+                            <span class="month">Mar</span>
+                        </div>
+                        <h3 class="event-title">Easter Sunrise Service</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-meta">
+                            <span data-icon="🌅">6:00 AM</span>
+                            <span data-icon="📍">Church Grounds</span>
+                        </div>
+                        <p class="event-desc">Celebrate the resurrection of Christ with our annual sunrise service. Breakfast fellowship to follow immediately after.</p>
+                        <a href="#" class="event-link">Learn More →</a>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date-badge">
+                            <span class="day">12</span>
+                            <span class="month">Apr</span>
+                        </div>
+                        <h3 class="event-title">Community Outreach Day</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-meta">
+                            <span data-icon="🕙">9:00 AM – 3:00 PM</span>
+                            <span data-icon="📍">City Community Center</span>
+                        </div>
+                        <p class="event-desc">Join us as we serve our local community through food distribution, prayer, and sharing the love of Christ in practical ways.</p>
+                        <a href="#" class="event-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="nav-logo" style="margin-bottom:16px;">
+                    <div class="nav-cross"></div>
+                    <span class="nav-title">Grace <span>Fellowship</span> Church</span>
+                </div>
+                <p class="footer-tagline">"A community of grace, rooted in faith,<br>growing together in love."</p>
+                <div class="footer-contact">
+                    <p><strong>Address:</strong>Guru Gobind Singh Nagar St.no 8/6,Barota Road Shimlapuri Ludhiana</p>
+                    <p><strong>Phone:</strong>+91 98889-84282 / +91 98156-5369</p>
+                    <p><strong>Email:</strong> info@gracefellowship.org</p>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#meetings">Meeting Times</a></li>
+                    <li><a href="#prayer">Prayer Requests</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#">Sermons</a></li>
+                    <li><a href="#">Give Online</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ministries</h4>
+                <ul>
+                    <li><a href="#">Children's Ministry</a></li>
+                    <li><a href="#">Youth Group</a></li>
+                    <li><a href="#">Women's Ministry</a></li>
+                    <li><a href="#">Men's Fellowship</a></li>
+                    <li><a href="#">Worship Team</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Grace Fellowship Church. All rights reserved.</p>
+            <p class="footer-verse">"His grace is sufficient." — 2 Cor. 12:9</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
