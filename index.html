@@ -827,6 +827,25 @@
             }
         }
         
+        #verse {
+            background: #ffffff;
+            text-align: center;
+        }
+        
+        .verse-box {
+            max-width: 700px;
+            margin: auto;
+        }
+        
+        .verse-text {
+            font-size: 20px;
+            font-style: italic;
+            line-height: 1.8;
+            color: #1A2340;
+            margin-top: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        
         @media (max-width: 900px) {
             nav {
                 padding: 18px 24px;
@@ -992,6 +1011,22 @@ Service Schedule
                 </div>
             </div>
         </div>
+    </section>
+    <section id="verse">
+
+        <div class="verse-box">
+
+            <span class="section-label">Daily Scripture</span>
+            <div class="divider"></div>
+
+            <h2 class="section-title">Bible Verse of the Day</h2>
+
+            <p class="verse-text" id="verseText">
+                Loading verse...
+            </p>
+
+        </div>
+
     </section>
     <section id="prayer">
         <div class="prayer-inner">
@@ -1165,7 +1200,120 @@ Follow our Instagram Page
             <p class="footer-verse">"His grace is sufficient." — 2 Cor. 12:9</p>
         </div>
     </footer>
+    <script>
+        const verses = [
 
+            "Trust in the Lord with all your heart – Proverbs 3:5",
+
+            "I can do all things through Christ who strengthens me – Philippians 4:13",
+
+            "The Lord is my shepherd; I shall not want – Psalm 23:1",
+
+            "With God all things are possible – Matthew 19:26",
+
+            "Be strong and courageous... the Lord is with you – Joshua 1:9",
+
+            "God is our refuge and strength – Psalm 46:1",
+
+            "Give thanks to the Lord, for He is good – Psalm 107:1",
+
+            "The joy of the Lord is your strength – Nehemiah 8:10",
+
+            "Cast all your anxiety on Him because He cares for you – 1 Peter 5:7",
+
+            "Your word is a lamp to my feet and a light to my path – Psalm 119:105",
+
+            "Peace I leave with you; my peace I give you – John 14:27",
+
+            "The Lord will fight for you; you need only to be still – Exodus 14:14",
+
+            "Delight yourself in the Lord – Psalm 37:4",
+
+            "Seek first the kingdom of God – Matthew 6:33",
+
+            "The Lord bless you and keep you – Numbers 6:24",
+
+            "My grace is sufficient for you – 2 Corinthians 12:9",
+
+            "Do everything in love – 1 Corinthians 16:14",
+
+            "The Lord is good to all – Psalm 145:9",
+
+            "Faith can move mountains – Matthew 17:20",
+
+            "Love never fails – 1 Corinthians 13:8",
+
+            "The Lord is near to all who call on Him – Psalm 145:18",
+
+            "Rejoice always – 1 Thessalonians 5:16",
+
+            "Pray continually – 1 Thessalonians 5:17",
+
+            "Give thanks in all circumstances – 1 Thessalonians 5:18",
+
+            "God is love – 1 John 4:8",
+
+            "Be still and know that I am God – Psalm 46:10",
+
+            "The Lord is my light and my salvation – Psalm 27:1",
+
+            "Wait for the Lord; be strong – Psalm 27:14",
+
+            "The Lord is compassionate and gracious – Psalm 103:8",
+
+            "Blessed are the peacemakers – Matthew 5:9",
+
+            "Let all that you do be done in love – 1 Corinthians 16:14",
+
+            "The Lord is faithful – 2 Thessalonians 3:3",
+
+            "Walk by faith, not by sight – 2 Corinthians 5:7",
+
+            "The Lord upholds all who fall – Psalm 145:14",
+
+            "God’s love endures forever – Psalm 136:1",
+
+            "The Lord is close to the brokenhearted – Psalm 34:18",
+
+            "Commit your work to the Lord – Proverbs 16:3",
+
+            "Those who hope in the Lord will renew their strength – Isaiah 40:31",
+
+            "The Lord is my strength and my shield – Psalm 28:7",
+
+            "The Lord watches over you – Psalm 121:5",
+
+            "Blessed are those who trust in the Lord – Jeremiah 17:7"
+
+        ];
+
+        const today = new Date().getDay();
+
+        document.getElementById("verseText").innerText = verses[today];
+    </script>
+    </footer>
+
+    <a href="https://wa.me/919888984282" target="_blank" style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:14px 18px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+z-index:999;
+">
+
+💬 WhatsApp
+
+</a>
+
+</body>
+
+</html>
 </body>
 
 </html>
