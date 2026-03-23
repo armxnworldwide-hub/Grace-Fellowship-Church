@@ -900,6 +900,16 @@
                 text-align: center;
             }
         }
+        
+        .hero-location {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: -10px;
+            margin-bottom: 25px;
+            animation: fadeInUp 1s 0.85s both;
+        }
     </style>
 </head>
 
@@ -928,6 +938,9 @@
             <div class="hero-cross"></div>
             <p class="hero-eyebrow">Welcome to</p>
             <h1>Grace <em>Fellowship</em><br>Church</h1>
+            <p class="hero-location">
+                Shimlapuri, Ludhiana, Punjab
+            </p>
             <p class="hero-verse">"For where two or three gather in my name,<br>there am I with them." — Matthew 18:20</p>
             <div class="hero-buttons">
 
@@ -1317,7 +1330,6 @@ Sermons
 
         document.getElementById("verseText").innerText = verses[today];
     </script>
-    </footer>
 
     <a href="https://wa.me/919888984282" target="_blank" style="
 position:fixed;
