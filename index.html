@@ -817,6 +817,25 @@
             color: #1A2340;
         }
         
+        .testimony-box {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #C9A84C;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 6px;
+        }
+        
+        .testimony-text {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .testimony-name {
+            font-weight: bold;
+            color: #1A2340;
+        }
+        
         @media(max-width:800px) {
             .pastor-container {
                 grid-template-columns: 1fr;
@@ -1026,6 +1045,81 @@ Service Schedule
                 </div>
             </div>
         </div>
+    </section>
+    <section id="testimony-form">
+
+        <div style="max-width:700px;margin:auto; padding:60px 20px;">
+
+            <span class="section-label">Share Your Story</span>
+            <div class="divider"></div>
+
+            <h2 class="section-title">Share Your Testimony</h2>
+
+            <p class="section-desc">
+                God ne tuhadi life vich ki kita? Apni gavahi share karo taaki hor lok encourage hon.
+            </p>
+
+            <form action="https://formsubmit.co/armxn.worldwide@gmail.com" method="POST">
+
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" name="City">
+                </div>
+
+                <div class="form-group">
+                    <label>Your Testimony</label>
+                    <textarea name="Testimony" required></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="New Testimony">
+                <input type="hidden" name="_captcha" value="false">
+
+                <button type="submit" class="btn btn-primary">
+✨ Submit Testimony
+</button>
+
+            </form>
+
+        </div>
+
+    </section>
+    <section id="testimonies">
+
+        <div style="max-width:1000px;margin:auto; padding:60px 20px;">
+
+            <span class="section-label">Faith Stories</span>
+            <div class="divider"></div>
+
+            <h2 class="section-title">Testimonies</h2>
+
+
+            <div class="testimony-box">
+                <p class="testimony-text">
+                    "Jesus ne meri prayer sun ke meri family problem solve kiti."
+                </p>
+                <p class="testimony-name">
+                    — Rahul, Ludhiana
+                </p>
+            </div>
+
+
+            <div class="testimony-box">
+                <p class="testimony-text">
+                    "God ne mainu job bless kiti prayer ton baad."
+                </p>
+                <p class="testimony-name">
+                    — Simran, Punjab
+                </p>
+            </div>
+
+
+        </div>
+
     </section>
     <section id="verse">
 
@@ -1330,8 +1424,7 @@ Sermons
 
         document.getElementById("verseText").innerText = verses[today];
     </script>
-
-    <a href="https://wa.me/919888984282" target="_blank" style="
+    <a href="https://wa.me/919888984282?text=Hello%20Grace%20Fellowship%20Church,%20I%20need%20information" target="_blank" style="
 position:fixed;
 bottom:20px;
 right:20px;
@@ -1345,9 +1438,12 @@ box-shadow:0 5px 20px rgba(0,0,0,0.2);
 z-index:999;
 ">
 
-💬 WhatsApp
+💬 Chat with us
 
 </a>
+
+
+    </a>
 
 </body>
 
