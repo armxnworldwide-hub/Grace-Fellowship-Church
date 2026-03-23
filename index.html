@@ -1454,6 +1454,8 @@ z-index:999;
     <script>
         function showTestimony(e) {
 
+            e.preventDefault()
+
             let name = document.getElementById("tname").value
             let city = document.getElementById("tcity").value
             let msg = document.getElementById("tmsg").value
@@ -1473,6 +1475,9 @@ z-index:999;
 `
 
             document.getElementById("testimonyList").innerHTML += html
+
+            // formsubmit nu manually trigger karna
+            e.target.submit()
 
         }
     </script>
