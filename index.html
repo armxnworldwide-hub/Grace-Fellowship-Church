@@ -836,6 +836,13 @@
             color: #1A2340;
         }
         
+        #testimony-form input,
+        #testimony-form textarea {
+            color: #000;
+            background: #fff;
+            border: 1px solid #ccc;
+        }
+        
         @media(max-width:800px) {
             .pastor-container {
                 grid-template-columns: 1fr;
@@ -1059,21 +1066,21 @@ Service Schedule
                 God ne tuhadi life vich ki kita? Apni gavahi share karo taaki hor lok encourage hon.
             </p>
 
-            <form action="https://formsubmit.co/armxn.worldwide@gmail.com" method="POST">
+            <form action="https://formsubmit.co/armxn.worldwide@gmail.com" method="POST" onsubmit="showTestimony(event)">
 
                 <div class="form-group">
                     <label>Your Name</label>
-                    <input type="text" name="Name" required>
+                    <input type="text" name="Name" id="tname" required>
                 </div>
 
                 <div class="form-group">
                     <label>City</label>
-                    <input type="text" name="City">
+                    <input type="text" name="City" id="tcity">
                 </div>
 
                 <div class="form-group">
                     <label>Your Testimony</label>
-                    <textarea name="Testimony" required></textarea>
+                    <textarea name="Testimony" id="tmsg" required></textarea>
                 </div>
 
                 <input type="hidden" name="_subject" value="New Testimony">
@@ -1096,7 +1103,7 @@ Service Schedule
             <div class="divider"></div>
 
             <h2 class="section-title">Testimonies</h2>
-
+            <div id="testimonyList"></div>
 
             <div class="testimony-box">
                 <p class="testimony-text">
@@ -1444,7 +1451,31 @@ z-index:999;
 
 
     </a>
+    <script>
+        function showTestimony(e) {
 
+            let name = document.getElementById("tname").value
+            let city = document.getElementById("tcity").value
+            let msg = document.getElementById("tmsg").value
+
+            let html = `
+<div class="testimony-box">
+
+<p class="testimony-text">
+"${msg}"
+</p>
+
+<p class="testimony-name">
+— ${name}, ${city}
+</p>
+
+</div>
+`
+
+            document.getElementById("testimonyList").innerHTML += html
+
+        }
+    </script>
 </body>
 
 </html>
