@@ -120,6 +120,7 @@
             display: flex;
             gap: 36px;
             list-style: none;
+            transition: all 0.3s ease;
         }
         
         .nav-links a {
@@ -894,6 +895,17 @@
                 font-size: 1.4rem;
                 cursor: pointer;
             }
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 21, 32, 0.95);
+                padding: 20px;
+                gap: 20px;
+            }
             section {
                 padding: 70px 24px;
             }
@@ -1643,7 +1655,7 @@
             <li><a href="https://www.instagram.com/gracefellowship_church?igsh=MWk3YzVzYjdpZmNzcQ==" target="_blank">Instagram</a></li>
             <li><a href="https://www.youtube.com/@gracefellowshipchurchludhi5149" target="_blank">YouTube</a></li>
         </ul>
-        <button class="nav-toggle" onclick="alert('Mobile menu coming soon!')">☰</button>
+        <button class="nav-toggle">☰</button>
     </nav>
 
 
@@ -2629,6 +2641,26 @@ font-weight:bold;
 box-shadow:0 5px 20px rgba(0,0,0,0.2);
 z-index:999;
 ">💬 Chat with us</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            // Toggle menu on button click
+            toggleButton.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when a link is clicked
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
 
 </body>
 
