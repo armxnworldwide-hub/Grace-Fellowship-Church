@@ -71,10 +71,11 @@
             }
         }
         
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
         }
         
         .nav-cross {
@@ -203,33 +204,28 @@
             max-width: 760px;
         }
         
-        .hero-cross {
-            width: 50px;
-            height: 50px;
+        .hero-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
             position: relative;
             margin: 0 auto 28px;
             animation: fadeInUp 1s 0.3s both;
         }
         
-        .hero-cross::before,
-        .hero-cross::after {
+        .hero-logo::before {
             content: '';
             position: absolute;
-            background: var(--gold);
-            border-radius: 3px;
-        }
-        
-        .hero-cross::before {
-            width: 6px;
-            height: 100%;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .hero-cross::after {
-            width: 100%;
-            height: 6px;
-            top: 32%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(10px);
+            z-index: -1;
         }
         
         .hero-eyebrow {
@@ -1663,7 +1659,7 @@
         <div class="hero-bg-pattern"></div>
         <div class="hero-glow"></div>
         <div class="hero-content">
-            <div class="hero-cross"></div>
+            <img src="images/churchlogo.jpeg" class="hero-logo" alt="Church Logo">
             <p class="hero-eyebrow">Welcome to</p>
             <h1>Grace <em>Fellowship</em><br>Church</h1>
             <p class="hero-location">
