@@ -11,7 +11,7 @@
     <meta property="og:description" content="Join Grace Fellowship Church for services, prayer, and spiritual community in Ludhiana, Punjab.">
     <meta property="og:type" content="website">
     <title>Grace Fellowship Church - Worship, Prayer & Community</title>
-    <link rel="icon" type="image/jpeg" href="images/churchlogo.jpeg">
+    <link rel="icon" type="image/jpeg" href="images/churchlogo1.jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         *,
@@ -54,10 +54,18 @@
             align-items: center;
             justify-content: space-between;
             padding: 18px 60px;
-            background: rgba(15, 21, 32, 0.95);
+            background: transparent;
+            backdrop-filter: none;
+            border-bottom: none;
+            transition: all 0.4s ease;
+            animation: slideDown 0.8s ease forwards;
+        }
+        
+        nav.scrolled {
+            background: rgba(11, 61, 145, 0.9);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-            animation: slideDown 0.8s ease forwards;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
         
         @keyframes slideDown {
@@ -71,39 +79,17 @@
             }
         }
         
-        .nav-logo img {
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .nav-brand img {
             width: 40px;
             height: 40px;
             border-radius: 50%;
             object-fit: cover;
-        }
-        
-        .nav-cross {
-            width: 28px;
-            height: 28px;
-            position: relative;
-            flex-shrink: 0;
-        }
-        
-        .nav-cross::before,
-        .nav-cross::after {
-            content: '';
-            position: absolute;
-            background: var(--gold);
-            border-radius: 2px;
-        }
-        
-        .nav-cross::before {
-            width: 4px;
-            height: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .nav-cross::after {
-            width: 100%;
-            height: 4px;
-            top: 35%;
         }
         
         .nav-title {
@@ -111,10 +97,7 @@
             color: var(--warm-white);
             font-size: 1.1rem;
             letter-spacing: 1px;
-        }
-        
-        .nav-title span {
-            color: var(--gold);
+            font-weight: 400;
         }
         
         .nav-links {
@@ -153,6 +136,10 @@
         
         .nav-links a:hover::after {
             width: 100%;
+        }
+        
+        .nav-toggle {
+            display: none;
         }
         
         .hero {
@@ -202,6 +189,24 @@
             position: relative;
             z-index: 2;
             max-width: 760px;
+        }
+        
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background-image: url('images/churchlogo1.jpeg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.1;
+            filter: blur(1px);
+            z-index: -1;
+            pointer-events: none;
         }
         
         .hero-logo {
@@ -880,6 +885,16 @@
             nav {
                 padding: 18px 24px;
             }
+            .nav-brand {
+                gap: 8px;
+            }
+            .nav-brand img {
+                width: 32px;
+                height: 32px;
+            }
+            .nav-title {
+                font-size: 0.9rem;
+            }
             .nav-links {
                 display: none;
             }
@@ -898,9 +913,15 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(15, 21, 32, 0.95);
+                background: rgba(11, 61, 145, 0.9);
+                backdrop-filter: blur(10px);
                 padding: 20px;
                 gap: 20px;
+                border-top: 1px solid rgba(201, 168, 76, 0.2);
+            }
+            .hero-content::before {
+                width: 250px;
+                height: 250px;
             }
             section {
                 padding: 70px 24px;
@@ -1633,17 +1654,15 @@
 <body>
 
     <nav>
-        <div class="nav-logo">
-
-            <img src="images/churchlogo.jpeg" style="height:40px;">
-
+        <div class="nav-brand">
+            <img src="images/churchlogo1.jpeg" alt="Grace Fellowship Church Logo">
+            <span class="nav-title">Grace Fellowship Church</span>
         </div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#meetings">Services</a></li>
             <li><a href="#ministries">Ministries</a></li>
             <li><a href="#sermons">Sermons</a></li>
-            <li><a href="#giving">Give</a></li>
             <li><a href="#prayer">Prayer</a></li>
             <li><a href="#events">Events</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1659,7 +1678,7 @@
         <div class="hero-bg-pattern"></div>
         <div class="hero-glow"></div>
         <div class="hero-content">
-            <img src="images/churchlogo.jpeg" class="hero-logo" alt="Church Logo">
+            <img src="images/churchlogo1.jpeg" class="hero-logo" alt="Church Logo">
             <p class="hero-eyebrow">Welcome to</p>
             <h1>Grace <em>Fellowship</em><br>Church</h1>
             <p class="hero-location">
@@ -1708,7 +1727,7 @@ Service Schedule
             </div>
 
         </section>
-        <div class="meetings-inner">
+        <div class="meetings-inner" id="services">
             <div>
                 <span class="section-label">Gather Together</span>
                 <div class="divider"></div>
@@ -1915,17 +1934,17 @@ Watch Sermons ▶
                 <div class="event-card">
                     <div class="event-header">
                         <div class="event-date-badge">
-                            <span class="day">3</span>
-                            <span class="month">April</span>
+                            <span class="day">15</span>
+                            <span class="month">May</span>
                         </div>
-                        <h3 class="event-title">Good Friday</h3>
+                        <h3 class="event-title">Fasting & Prayer </h3>
                     </div>
                     <div class="event-body">
                         <div class="event-meta">
-                            <span data-icon="🕖">12:00 PM -3:00 PM</span>
-                            <span data-icon="📍">Main Sanctuary</span>
+                            <span data-icon="🕖">...</span>
+                            <span data-icon="📍">...</span>
                         </div>
-                        <p class="event-desc">A sacred evening of prayer, reflection, and worship as we remember the sacrifice of our Lord on the cross.</p>
+                        <p class="event-desc">Let us humble ourselves before the Lord and seek His face through prayer and fasting</p>
                         <a href="#" class="event-link">Learn More →</a>
                     </div>
                 </div>
@@ -1933,17 +1952,17 @@ Watch Sermons ▶
                 <div class="event-card">
                     <div class="event-header">
                         <div class="event-date-badge">
-                            <span class="day">5</span>
-                            <span class="month">April</span>
+                            <span class="day">16</span>
+                            <span class="month">May</span>
                         </div>
-                        <h3 class="event-title">Easter Sunrise Service</h3>
+                        <h3 class="event-title">Fasting & Prayer </h3>
                     </div>
                     <div class="event-body">
                         <div class="event-meta">
-                            <span data-icon="🌅">5:00 AM - 7:00 AM</span>
-                            <span data-icon="📍">In Church</span>
+                            <span data-icon="🌅">...</span>
+                            <span data-icon="📍">...</span>
                         </div>
-                        <p class="event-desc">Join us early morning as we celebrate the resurrection of Jesus Christ with worship, prayer, and thanksgiving..</p>
+                        <p class="event-desc">Let us humble ourselves before the Lord and seek His face through prayer and fasting</p>
                         <a href="#" class="event-link">Learn More →</a>
                     </div>
                 </div>
@@ -1951,17 +1970,17 @@ Watch Sermons ▶
                 <div class="event-card">
                     <div class="event-header">
                         <div class="event-date-badge">
-                            <span class="day">5</span>
-                            <span class="month">April</span>
+                            <span class="day">17 </span>
+                            <span class="month">May</span>
                         </div>
-                        <h3 class="event-title">Easter Celeberation</h3>
+                        <h3 class="event-title">Fast Opening Service</h3>
                     </div>
                     <div class="event-body">
                         <div class="event-meta">
-                            <span data-icon="🕙">9:00 AM - 4:00 PM</span>
+                            <span data-icon="🕙">9:30 AM - 1:00 PM</span>
                             <span data-icon="📍">In Church</span>
                         </div>
-                        <p class="event-desc">Celebrate the resurrection of Christ with our annual sunrise service. Breakfast fellowship to follow immediately after</p>
+                        <p class="event-desc">After 3 days of seeking God in fasting and prayer, we gather with grateful hearts to thank Him for His faithfulness.</p>
                         <a href="#" class="event-link">Learn More →</a>
                     </div>
                 </div>
@@ -1988,7 +2007,7 @@ Watch Sermons ▶
             <div class="footer-brand">
                 <div class="nav-logo" style="margin-bottom:16px;">
 
-                    <img src="images/churchlogo.jpeg" style="height:40px;">
+                    <img src="images/churchlogo1.jpeg" style="height:40px;">
 
                 </div>
                 <p class="footer-tagline">"A community of grace, rooted in faith,<br>growing together in love."</p>
@@ -2111,88 +2130,6 @@ Sermons
                     <h3>Men's & Women's Groups</h3>
                     <p>Fellowship and mentorship groups designed for specific needs and growth at different life stages.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Giving Section -->
-    <section id="giving">
-        <div class="giving-inner" style="max-width:1200px;margin:auto;">
-            <div class="giving-left">
-                <span class="section-label">Support Our Mission</span>
-                <div class="divider" style="background:var(--gold);"></div>
-                <h2 class="section-title">Giving & Tithes</h2>
-                <p class="section-desc">Your generous giving helps us continue our mission of spreading God's love and serving our community. Every contribution, no matter the size, makes a meaningful difference in advancing God's kingdom.</p>
-
-                <div class="giving-options">
-                    <div class="giving-option">
-                        <div class="giving-icon">📱</div>
-                        <div class="giving-option-content">
-                            <h4>Mobile Payment</h4>
-                            <p>Use Google Pay, Apple Pay, or UPI</p>
-                        </div>
-                    </div>
-                    <div class="giving-option">
-                        <div class="giving-icon">💳</div>
-                        <div class="giving-option-content">
-                            <h4>Online Transfer</h4>
-                            <p>Bank transfer or card payment</p>
-                        </div>
-                    </div>
-                    <div class="giving-option">
-                        <div class="giving-icon">💰</div>
-                        <div class="giving-option-content">
-                            <h4>Offering Box</h4>
-                            <p>Cash offering during service</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="giving-form">
-                <h3>Giving at Grace</h3>
-                <div style="margin-bottom:24px;">
-                    <label style="display:block;color:var(--gold);font-size:0.75rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">Select Amount</label>
-                    <div class="amount-tabs">
-                        <button class="amount-btn" onclick="selectAmount(this, 500)">₹500</button>
-                        <button class="amount-btn" onclick="selectAmount(this, 1000)">₹1000</button>
-                        <button class="amount-btn" onclick="selectAmount(this, 2500)">₹2500</button>
-                        <button class="amount-btn" onclick="selectAmount(this, 5000)">₹5000</button>
-                    </div>
-                </div>
-
-                <form action="https://formsubmit.co/armxn.worldwide@gmail.com" method="POST">
-                    <div class="form-group" style="margin-bottom:20px;">
-                        <label style="color:var(--gold);">Custom Amount</label>
-                        <input type="number" name="Amount" id="customAmount" placeholder="Enter custom amount" style="color:var(--warm-white);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:13px 16px;border-radius:2px;">
-                    </div>
-
-                    <div class="form-group">
-                        <label style="color:var(--gold);">Your Name</label>
-                        <input type="text" name="Name" placeholder="Your name" style="color:var(--warm-white);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:13px 16px;border-radius:2px;">
-                    </div>
-
-                    <div class="form-group">
-                        <label style="color:var(--gold);">Email</label>
-                        <input type="email" name="Email" placeholder="your@email.com" style="color:var(--warm-white);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:13px 16px;border-radius:2px;">
-                    </div>
-
-                    <div class="form-group">
-                        <label style="color:var(--gold);">Giving Purpose</label>
-                        <select name="Purpose" style="color:var(--warm-white);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:13px 16px;border-radius:2px;">
-                            <option style="background:var(--navy);">General Offering</option>
-                            <option style="background:var(--navy);">Missions</option>
-                            <option style="background:var(--navy);">Building Fund</option>
-                            <option style="background:var(--navy);">Benevolence</option>
-                        </select>
-                    </div>
-
-                    <input type="hidden" name="_subject" value="Giving Notification">
-                    <input type="hidden" name="_captcha" value="false">
-                    <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px;">💝 Make a Gift</button>
-                </form>
-
-                <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;margin-top:16px;text-align:center;">All donations are secure and tax-deductible</p>
             </div>
         </div>
     </section>
@@ -2576,13 +2513,6 @@ Sermons
             faqItem.classList.toggle('active');
         }
 
-
-        function selectAmount(button, amount) {
-            document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            document.getElementById('customAmount').value = amount;
-        }
-
         // Newsletter subscription
         function subscribeNewsletter() {
             const email = document.getElementById('newsletterEmail').value;
@@ -2624,24 +2554,11 @@ Sermons
         });
     </script>
 
-    <a href="https://wa.me/919888984282?text=Hello%20Grace%20Fellowship%20Church,%20I%20need%20information" target="_blank" style="
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:14px 18px;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
-z-index:999;
-">💬 Chat with us</a>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const toggleButton = document.querySelector('.nav-toggle');
             const navLinks = document.querySelector('.nav-links');
+            const nav = document.querySelector('nav');
 
             // Toggle menu on button click
             toggleButton.addEventListener('click', function() {
@@ -2654,6 +2571,15 @@ z-index:999;
                 link.addEventListener('click', function() {
                     navLinks.classList.remove('active');
                 });
+            });
+
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
             });
         });
     </script>
